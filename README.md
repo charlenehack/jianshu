@@ -3,6 +3,4 @@
  
  
  
- 
- 
  scrapy genspider -t crawl jianshu "jianshu.com"

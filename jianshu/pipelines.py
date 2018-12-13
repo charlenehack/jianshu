@@ -72,8 +72,9 @@ class  JianshuTwistedPipeline(object):
         defer = self.dbpool.runInteraction(self.insert_item, item)
           #  错误处理
         defer.addErrback(self.handle_error, item, spider)
+        return item
 
-    def insert_item(self, item, cursor):
+    def insert_item(self, cursor, item):
         cursor.execute(self.sql, (item['title'], item['author'], item['avatar'], item['publish_time'],
                                       item['article_id'], item['origin_url'], item['content']))
 

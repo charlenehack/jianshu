@@ -22,6 +22,8 @@ class SeleniumDownloadMiddleware(object):
         self.wait = WebDriverWait(self.browser, 10)
 
     def process_request(self, request, spider):
+        # YES = request.url.endswith('.html')   # 用来判断哪些页面需要调用浏览器
+        # if YES:
         self.browser.get(request.url)
         print('我正在用selenium自动化工具下载url')
         time.sleep(1)

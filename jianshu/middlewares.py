@@ -16,7 +16,9 @@ from scrapy.http.response.html import HtmlResponse
 #  一些点赞数，评论数，喜欢数，推荐阅读的文章链接都是ajax加载的。
 class SeleniumDownloadMiddleware(object):
     def __init__(self):
-        self.browser = webdriver.Chrome()
+        self.option = webdriver.ChromeOptions()
+        self.option.add_argument('headless')   # 隐藏浏览器选项
+        self.browser = webdriver.Chrome(chrome_options=self.option)
         self.wait = WebDriverWait(self.browser, 10)
 
     def process_request(self, request, spider):

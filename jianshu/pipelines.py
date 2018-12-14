@@ -30,7 +30,7 @@ class JianshuSpiderPipeline(object):
     def sql(self):
         if not self._sql:
             self._sql = '''
-              insert into article(title,author,avatar,publish_time,article_id,origin_url,content) value(%s,%s,%s,%s,%s,%s,%s)
+              insert into article (title,author,avatar,publish_time,article_id,origin_url,content) values (%s,%s,%s,%s,%s,%s,%s)
               '''
             return self._sql
         return self._sql
@@ -62,7 +62,7 @@ class  JianshuTwistedPipeline(object):
     def sql(self):
         if   not  self._sql:
             self._sql = '''
-              insert into article(title,author,avatar,publish_time,article_id,origin_url,content) value(%s,%s,%s,%s,%s,%s,%s)
+              insert into article (title,author,avatar,publish_time,article_id,origin_url,content) values (%s,%s,%s,%s,%s,%s,%s)
               '''
             return self._sql
         return self._sql
